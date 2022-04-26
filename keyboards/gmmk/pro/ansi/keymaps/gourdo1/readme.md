@@ -1,6 +1,6 @@
-# gourdo1's GMMK Pro ANSI layout
+# [gourdo1's](mailto:gourdo1@outlook.com) GMMK Pro ANSI layout
 
-This Windows-centric layout is based on [Jonavin's](https://github.com/qmk/qmk_firmware/tree/master/keyboards/gmmk/pro/ansi/keymaps/jonavin) GMMK Pro layout with several additions, modifications, a tweaked keymap, updated layers and expanded RGB controls.
+This Windows-centric ANSI layout is based on [Jonavin's](https://github.com/qmk/qmk_firmware/tree/master/keyboards/gmmk/pro/ansi/keymaps/jonavin) GMMK Pro layout with several additions, modifications, a tweaked keymap, updated layers and expanded RGB controls.
 
 ![image](https://raw.githubusercontent.com/gourdo1/media/main/susuwatari.jpg)
 
