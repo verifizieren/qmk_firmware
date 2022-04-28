@@ -24,9 +24,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 enum custom_user_layers {
     _BASE,
     _FN1,
-    _GAME,
     _NUMPADMOUSE,
     _MOUSEKEY,
+	_GAME
 };
 
 #define KC_CAD LALT(LCTL(KC_DEL))
