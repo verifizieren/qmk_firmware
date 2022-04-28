@@ -168,6 +168,16 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             timeout_update_threshold(clockwise);
             #endif
         break;
+        case _GAME:
+        // Game: Paddle movement
+            if (damage_count == 0) {
+                if ( clockwise ) {
+                    if (paddle_pos_full < 15) ++paddle_pos_full;
+                } else {
+                    if (paddle_pos_full > 0) --paddle_pos_full;
+                }
+            }
+        break;
         default:
             encoder_action_volume(clockwise); // Otherwise it just changes volume
         break;
@@ -179,6 +189,42 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 #endif // ENCODER_ENABLE && !ENCODER_DEFAULTACTIONS_ENABLE
 
 #ifdef RGB_MATRIX_ENABLE
+
+// Game logic
+	void init_ball(uint8_t i) {
+		i &= 1;
+		ball[i].on = true;
+		ball[i].up = false;
+		ball[i].y = 0;
+		ball[i].x = rand() % 16;
+		
+		// Set initial ball state
+		if (ball[i].x < 8) {
+			ball[i].left = false;
+		} else {
+			ball[i].x -= 4;
+			ball[i].left = true;
+		}
+		
+		// 1/4 chance of being an enemy ball after level 6
+		if (level_number > 3) {
+			ball[i].enemy = ((rand() % 4) == 0);
+		} else {
+			ball[i].enemy = false;
+		}
+	}
+
+	void hurt_paddle(void) {
+		if (paddle_lives > 0) {
+			--paddle_lives;
+		}
+		damage_timer = timer_read();
+		damage_count = 10;
+		
+		// Reset board
+		init_ball(0);
+		ball[1].on = false;
+	}
 
 // Capslock, Scroll lock and Numlock indicator on Left side lights.
 void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
@@ -335,7 +381,204 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         break;
     #endif
 
+        // Paddle game logic
+    case _GAME:
+			if (!game_start) {
+				srand((unsigned int)timer_read());
+				
+				// Store user light settings
+				last_hsv = rgb_matrix_get_hsv();
+				rgb_matrix_sethsv_noeeprom(0, 0, 0);
+
+				paddle_pos_full = 8;
+				paddle_lives = 4;
+				bounce_count = 0;
+				level_number = 0;
+				damage_count = 0;
+
+				init_ball(0);
+				ball[1].on = false;
+				ball_timer = timer_read();
+
+				game_start = true;
+			}
+			
+			// Set level indicator
+			if (level_number < 12) {
+				rgb_matrix_set_color(GAME_R0[level_number], RGB_BLUE);
+			}
+			
+			// Set life bar
+			for (uint8_t i=0; i < paddle_lives ; i++) {
+				rgb_matrix_set_color(GAME_LIVES[i], RGB_GREEN);
+			}
+			
+			uint8_t paddle_pos = paddle_pos_full >> 1;
+
+			if (damage_count > 0) {
+				// Flash paddle when receiving damage
+				if (timer_elapsed(damage_timer) > 500) {
+					--damage_count;
+					damage_timer = timer_read();
+				}
+				if ((damage_count & 1) == 0) {
+					for (uint8_t i=0; i < 3 ; i++) {
+						rgb_matrix_set_color(GAME_PADDLE[paddle_pos + i], RGB_RED);
+					}
+				}
+				if (damage_count == 0) {
+					ball_timer = timer_read();
+				}
+				
+
+			} else if (paddle_lives == 0) {
+				// Game over
+				for (uint8_t i=0; i<sizeof(LED_GAME_OVER)/sizeof(LED_GAME_OVER[0]); i++) {
+					rgb_matrix_set_color(LED_GAME_OVER[i], RGB_RED);
+				}
+			
+			} else if (level_number >= 12) {
+				// You win
+				if (rgb_value.r == 0xff && rgb_value.g < 0xff) {
+					if (rgb_value.b > 0) { --rgb_value.b; }
+					else { ++rgb_value.g; }
+				} else if (rgb_value.g == 0xff && rgb_value.b < 0xff) {
+					if (rgb_value.r > 0) { --rgb_value.r; }
+					else { ++rgb_value.b; }
+				} else if (rgb_value.b == 0xff && rgb_value.r < 0xff) {
+					if (rgb_value.g > 0) { --rgb_value.g; }
+					else { ++rgb_value.r; }
+				}
+				
+				for (uint8_t i=0; i < 3 ; i++) {
+					rgb_matrix_set_color(GAME_PADDLE[paddle_pos + i], rgb_value.r, rgb_value.g, rgb_value.b);
+				}
+				rgb_matrix_set_color(GAME_SMILE1[paddle_pos], rgb_value.r, rgb_value.g, rgb_value.b);
+				rgb_matrix_set_color(GAME_SMILE1[paddle_pos + 3], rgb_value.r, rgb_value.g, rgb_value.b);
+				rgb_matrix_set_color(GAME_SMILE2[paddle_pos], rgb_value.r, rgb_value.g, rgb_value.b);
+				rgb_matrix_set_color(GAME_SMILE2[paddle_pos + 3], rgb_value.r, rgb_value.g, rgb_value.b);
+			
+			} else {
+				// normal game loop
+				
+				// Set paddle position
+				for (uint8_t i=0; i < 3 ; i++) {
+					rgb_matrix_set_color(GAME_PADDLE[paddle_pos + i], RGB_GREEN);
+				}
+				
+				// Ball movement logic happens at intervals
+				if (timer_elapsed(ball_timer) > GAME_TIMER[level_number]) {
+					for (int i=0; i<2; ++i) {
+						if (ball[i].on) {
+							// Ball movement
+							if (ball[i].up) {
+								if (ball[i].y > 0) {
+									--ball[i].y;
+									if (!ball[i].left) ++ball[i].x;
+								} else {
+									// Count reflections. If > 10, increase level
+									++bounce_count;
+									if (bounce_count >= 10) {
+										bounce_count = 0;
+										++level_number;
+									}
+									ball[i].on = false;
+								}
+							} else {
+								++ball[i].y;
+								if (ball[i].left) --ball[i].x;
+								if (ball[i].y > 4) {
+									// Remove a life if ball isn't returned and isn't enemy
+									if (!ball[i].enemy) {
+										hurt_paddle(); 
+										i = 2;
+									} else {
+										ball[i].on = false;
+									}
+								}
+							}
+						}
+					}
+					if (ball[0].y == 4 && !ball[1].on) {
+						init_ball(1);
+					}
+					if (ball[1].y == 4 && !ball[0].on) {
+						init_ball(0);
+					}
+					if (!ball[0].on && !ball[1].on) {
+						init_ball(0);
+					}
+					ball_timer = timer_read();
+				}
+				
+				// Other ball stuff
+				for (int i=0; i<2; ++i) {
+					if (ball[i].on) {
+						// Ball deflection logic
+						if (!ball[i].up && ball[i].y == 4 && (ball[i].x == paddle_pos || ball[i].x == paddle_pos - 1 || ball[i].x == paddle_pos + 1)) {
+							if (!ball[i].enemy) {
+								--ball[i].y;
+								if (!ball[i].left) { ++ball[i].x; }
+								ball[i].up = true;
+							} else {
+								hurt_paddle();
+								i = 2;
+							}
+						}
+
+						// Ball display
+						switch (ball[i].y) {
+							case 0:
+							if (ball[i].enemy) {
+								rgb_matrix_set_color(GAME_R0[ball[i].x], RGB_RED);
+							} else {
+								rgb_matrix_set_color(GAME_R0[ball[i].x], RGB_WHITE);
+							}
+							break;
+
+							case 1:
+							if (ball[i].enemy) {
+								rgb_matrix_set_color(GAME_R1[ball[i].x], RGB_RED);
+							} else {
+								rgb_matrix_set_color(GAME_R1[ball[i].x], RGB_WHITE);
+							}
+							break;
+
+							case 2:
+							if (ball[i].enemy) {
+								rgb_matrix_set_color(GAME_R2[ball[i].x], RGB_RED);
+							} else {
+								rgb_matrix_set_color(GAME_R2[ball[i].x], RGB_WHITE);
+							}
+							break;
+
+							case 3:
+							if (ball[i].enemy) {
+								rgb_matrix_set_color(GAME_R3[ball[i].x], RGB_RED);
+							} else {
+								rgb_matrix_set_color(GAME_R3[ball[i].x], RGB_WHITE);
+							}
+							break;
+
+							case 4:
+							if (ball[i].enemy) {
+								rgb_matrix_set_color(GAME_R4[ball[i].x], RGB_RED);
+							} else {
+								rgb_matrix_set_color(GAME_R4[ball[i].x], RGB_WHITE);
+							}
+							break;
+						}
+					}
+				}				
+			}
+        break;
+
     default:
+		if (game_start) {
+			// Reset lighting settings
+			game_start = false;
+			rgb_matrix_sethsv_noeeprom(last_hsv.h, last_hsv.s, last_hsv.v);
+		}
         break;
     }
 }
