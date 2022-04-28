@@ -173,7 +173,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
             // when keycode is released
         }
         break;
-		
+
 /*
     case YAHOO:
         if (record -> event.pressed) SEND_STRING("yahoo.com");
@@ -198,7 +198,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
         break;
 */
 
-    // Windows key lock		
+    // Windows key lock
     case KC_WINLCK:
         if (record -> event.pressed) {
             keymap_config.no_gui = !keymap_config.no_gui; //toggle status
