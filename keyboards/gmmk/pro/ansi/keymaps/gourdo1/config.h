@@ -44,8 +44,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // add fifth layer for colemak  -- set "COLEMAK_LAYER_ENABLE = yes" in rules.mk to enable
 #if defined COLEMAK_LAYER_ENABLE
-#define DYNAMIC_KEYMAP_LAYER_COUNT 5
-#define _COLEMAK 4
+#define DYNAMIC_KEYMAP_LAYER_COUNT 6
+#define _COLEMAK 5
 #endif // COLEMAK_LAYER_ENABLE
 
 /*
