@@ -10,25 +10,25 @@ This Windows-centric ANSI layout is based on [Jonavin's](https://github.com/qmk/
 
 * [VIA](https://www.caniusevia.com/) support enabled (added Mar 16, 2022)
 * Most [default Glorious shortcuts](https://cdn.shopify.com/s/files/1/0549/2681/files/GMMK_Pro_User_Guide.pdf) enabled
-* [N-key Rollover](https://en.wikipedia.org/wiki/Rollover_\(keyboard\)#n-key_rollover) (NKRO) -- toggled with FN+R
-* Gaming mode (FN + Win-key) locks out Win-key as well as double-tap Shift Capslock; Also RGB highlights WSAD and nearby gaming related keys
+* [N-key Rollover](https://en.wikipedia.org/wiki/Rollover_\(keyboard\)#n-key_rollover) (NKRO) -- toggled with Fn+R
+* Gaming mode (Fn+Win-key) locks out Win-key as well as double-tap Shift Capslock; Also RGB highlights WSAD and nearby gaming related keys
 * [Caps Word](https://getreuer.info/posts/keyboards/caps-word/index.html) enabled: To capitalize the next word only, press and release both left and right shift keys at the same time. (added Feb 25, 2022)
-* Multi-monitor app moving shortcuts: FN + [,] (square brackets) to move current app window to next monitor (added Apr 11, 2022)
-* Domain shortcuts: FN+.=".com", FN+O="outlook.com", FN+Y="yahoo.com", FN+H="hotmail.com", FN+G="gmail.com". (added Apr 7, 2022)
-* Capslock toggled by double tap of Left Shift key or FN + Capslock (RGB green highlighted)
+* Multi-monitor app moving shortcuts: Fn+[,] (square brackets) to move current app window to next monitor (added Apr 11, 2022)
+* Domain shortcuts: Fn+.=".com", Fn+O="outlook.com", Fn+Y="yahoo.com", Fn+H="hotmail.com", Fn+G="gmail.com". (added Apr 7, 2022)
+* Capslock toggled by double tap of Left Shift key or Fn + Capslock (RGB green highlighted)
 * Fn-Backslash for [Bootloader mode](https://github.com/qmk/qmk_firmware/blob/master/docs/newbs_flashing.md)
 * Home key on F13, Del key right of Backspace
 * Insert accessible via Shift-Backspace (so shift delete still works in Windows Explorer)
 * PrtScrn, Scroll Lock, Pause/Break are top right on the keyboard: Fn+F11, Fn+F12, Fn+F13
 * [Colemak](https://colemak.com/) key layout support (Layer accessible via Left Shift + turn Encoder clockwise until side LEDs light up purple)
 * Double tap ESC any time to revert to base layer (added Feb 26, 2022)
-* paddle game (added May xx, 2022)
+* Paddle game accessible via Fn+P (added May xx, 2022)
 
 ### Numpad + Mouse Keys (Capslock key)
 
 * Overlay numpad + [Mouse Keys](https://github.com/qmk/qmk_firmware/blob/master/docs/feature_mouse_keys.md) are accessed through Capslock key hold (temp) or double press (locked) with RGB highlighting
 * This layer disables much of the keyboard, except X/C/V for cut/copy/paste, WASD for cursor, Q/E for PgUp/PgDn, cursor keys become mouse keys, surrounding keys become mouse buttons and all number keys become numpad versions (so Alt char codes work regardless of which set you use)
-* Fn & N keys light up orange if system numlock is off (inverted status), indicating numpad keys will not deliver expected output (FN + N to toggle)
+* Fn and N keys light up orange if system numlock is off (inverted status), indicating numpad keys will not deliver expected output (Fn+N to toggle)
 * Double zero on comma key.
 * [Mouse Keys](https://github.com/qmk/qmk_firmware/blob/master/docs/feature_mouse_keys.md) allow you to use the mouse without taking your hand off the keyboard. (added Mar 15, 2022)
 * Mouse controls are: Cursor keys = move mouse; RShift = button1, End = button2, RCtrl = button3, PgUp/PgDn = Scroll wheel
@@ -38,7 +38,7 @@ This Windows-centric ANSI layout is based on [Jonavin's](https://github.com/qmk/
 
 * Default knob turn changes volume; button press toggles mute
 * Exponential encoder - quick repeated volume up doubles increase; quick repeated volume down triples decrease (added Feb 17, 2022)
-* FN knob turn changes RGB idle timeout
+* Fn + knob turn changes RGB idle timeout
 * holding Left Shift changes layers
 * holding Right Shift navigates page up/down
 * holding Left Ctrl navigates prev/next word
@@ -47,32 +47,32 @@ This Windows-centric ANSI layout is based on [Jonavin's](https://github.com/qmk/
 
 ### Paddle Game
 
-* Based on [Tomas Guinan's excellent paddle game] (https://github.com/qmk/qmk_firmware/tree/master/keyboards/gmmk/pro/ansi/keymaps/paddlegame)
+* Based on [Tomas Guinan's excellent GMMK Pro paddle game](https://github.com/qmk/qmk_firmware/tree/master/keyboards/gmmk/pro/ansi/keymaps/paddlegame)
 * Paddle Game playable by pressing Fn+P
 * Use rotary encoder to control paddle
-* Contains 12 levels, indicated by blue LED on F row
+* Contains 12 levels, indicated by blue LED on F-key row
 * Player has 4 lives, indicated by nav cluster
 * Deflect white balls while avoiding red ones
 * Double hit ESC or otherwise change layer to quit game
 
 ### Global RGB Controls
 
-* RGB backlight lighting effect: FN + up/down
-* RGB backlight effect speed: FN + left/right
-* RGB backlight hue cycle: FN + A/D
-* RGB backlight brightness: FN + W/S
-* RGB backlight saturation: FN + Q/E (added Feb 4, 2022)
-* RGB backlight night mode toggle: FN + Z (indicators still work)
-* RGB backlight timeout: FN + Encoder or "-" and "=" (default 15 minutes) (updated Apr 7, 2022)
-    * indicators in FN layer using RGB in F-key and number rows to show the current timeout in minutes
+* RGB backlight lighting effect: Fn+up/down
+* RGB backlight effect speed: Fn+left/right
+* RGB backlight hue cycle: Fn+A/D
+* RGB backlight brightness: Fn+W/S
+* RGB backlight saturation: Fn+Q/E (added Feb 4, 2022)
+* RGB backlight night mode toggle: Fn+Z (indicators still work)
+* RGB backlight timeout: Fn+Encoder or "-" and "=" (default 15 minutes) (updated Apr 7, 2022)
+    * indicators in Fn layer using RGB in F-key and number rows to show the current timeout in minutes
 * RGB indicators on left side LEDs: Capslock (green), Scroll Lock (red), and Num Lock not set (orange) 
-* FN + Z to turn off RGB backlighting; press again to toggle
+* Fn+Z to turn off RGB backlighting; press again to toggle
 
 ### Advanced Controls
 
-* FN + \ to get to bootloader mode
-* FN + [ESC] to clear EEPROM (then unplug and re-plug) (added Apr 11, 2022)
-* FN + R to toggle N-key Rollover (added Apr 11, 2022)
+* Fn+\ to get to bootloader mode
+* Fn+[ESC] to clear EEPROM (then unplug and re-plug) (added Apr 11, 2022)
+* Fn+R to toggle N-key Rollover (added Apr 11, 2022)
 
 Link to latest firmware binary: https://github.com/gourdo1/media/raw/main/gmmk_pro_ansi_gourdo1.bin
 
