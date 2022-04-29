@@ -134,10 +134,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
         return false;
     }
 
-    // Your macros ...
+    // Key macros ...
     switch (keycode) {
 
-    // DotCom domain macros
+        // DotCom domain macros
     case DOTCOM:
         if (record -> event.pressed) {
             SEND_STRING(".com");
@@ -174,38 +174,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
         }
         break;
 
-/*
-    case YAHOO:
-        if (record -> event.pressed) SEND_STRING("yahoo.com");
-        else unregister_code16(keycode);
-        break;
-    case OUTLOOK:
-        if (record -> event.pressed) SEND_STRING("outlook.com");
-        else unregister_code16(keycode);
-        break;
-    case GMAIL:
-        if (record -> event.pressed) SEND_STRING("gmail.com");
-        else unregister_code16(keycode);
-        break;
-    case HOTMAIL:
-        if (record -> event.pressed) {
-            SEND_STRING("hotmail.com");
-        } else unregister_code16(keycode);
-        break;
-    case DOTCOM:
-        if (record -> event.pressed) SEND_STRING(".com");
-        else unregister_code16(keycode);
-        break;
-*/
-
-    // Windows key lock
+        // WinKey lock
     case KC_WINLCK:
         if (record -> event.pressed) {
             keymap_config.no_gui = !keymap_config.no_gui; //toggle status
         } else unregister_code16(keycode);
         break;
 
-    // Double Zero    
+        // Double Zero    
     case KC_00:
         if (record -> event.pressed) {
             // when keycode KC_00 is pressed
@@ -213,7 +189,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
         } else unregister_code16(keycode);
         break;
 
-    // Treat Control+Space as if regular Space
+        // Treat Control+Space as if regular Space
     case KC_SPC: {
         // Initialize a boolean variable that keeps track of the space key status: registered or not?
         static bool spckey_registered;
@@ -239,8 +215,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
                 return false;
             }
         }
-        }
-        break;
+    }
+    break;
 
     // Treat Shift+Space as if regular Space
     case KC_SHIFTSPC: {
@@ -268,8 +244,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
                 return false;
             }
         }
-        }
-        break;
+    }
+    break;
 
     // Add INS as SHIFT-modified BackSpace key
     case KC_BSPC: {
@@ -297,38 +273,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
                 return false;
             }
         }
-        }
-        break;
-
-    /* Add INS as SHIFT-modified DEL key
-    case KC_DEL: {
-        // Initialize a boolean variable that keeps track of the delete key status: registered or not?
-        static bool inskey_registered;
-        if (record->event.pressed) {
-            // Detect the activation of either shift keys
-            if (mod_state & MOD_MASK_SHIFT) {
-                // First temporarily canceling both shifts so that
-                // shift isn't applied to the KC_INS keycode
-                del_mods(MOD_MASK_SHIFT);
-                register_code(KC_INS);
-                // Update the boolean variable to reflect the status of KC_INS
-                inskey_registered = true;
-                // Reapplying modifier state so that the held shift key(s)
-                // still work even after having tapped the Delete/Insert key.
-                set_mods(mod_state);
-                return false;
-            }
-        } else { // on release of KC_DEL
-            // In case KC_INS is still being sent even after the release of KC_DEL
-            if (inskey_registered) {
-                unregister_code(KC_INS);
-                inskey_registered = false;
-                return false;
-            }
-        }
-        }
-        break;
-    */
+    }
+    break;
 
     #ifdef IDLE_TIMEOUT_ENABLE
     case RGB_TOI:
@@ -418,7 +364,6 @@ void activate_numlock(bool turn_on) {
 }
 
 // INITIAL STARTUP
-
 __attribute__((weak)) void keyboard_post_init_keymap(void) {}
 
 void keyboard_post_init_user(void) {
