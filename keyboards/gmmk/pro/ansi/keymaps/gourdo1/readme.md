@@ -1,6 +1,6 @@
 # [gourdo1's](mailto:gourdo1@outlook.com) GMMK Pro ANSI layout
 
-This Windows-centric ANSI layout is based on [Jonavin's](https://github.com/qmk/qmk_firmware/tree/master/keyboards/gmmk/pro/ansi/keymaps/jonavin) GMMK Pro layout with several additions, modifications, a tweaked keymap, updated layers and expanded RGB controls.
+This Windows-centric ANSI layout is based on [Jonavin's](https://github.com/qmk/qmk_firmware/tree/master/keyboards/gmmk/pro/ansi/keymaps/jonavin) GMMK Pro layout with several additions, fixes, a tweaked keymap, updated layers, [Tomas Guinan's paddle game](https://github.com/qmk/qmk_firmware/tree/master/keyboards/gmmk/pro/ansi/keymaps/paddlegame) and expanded RGB controls.
 
 ![image](https://raw.githubusercontent.com/gourdo1/media/main/susuwatari.jpg)
 
@@ -22,7 +22,7 @@ This Windows-centric ANSI layout is based on [Jonavin's](https://github.com/qmk/
 * PrtScrn, Scroll Lock, Pause/Break are top right on the keyboard: Fn+F11, Fn+F12, Fn+F13
 * [Colemak](https://colemak.com/) key layout support (Layer accessible via Left Shift + turn Encoder clockwise until side LEDs light up purple)
 * Double tap ESC any time to revert to base layer (added Feb 26, 2022)
-* Paddle game accessible via Fn+P (added May xx, 2022)
+* Paddle game accessible via Fn+P (added May 4, 2022)
 
 ### Numpad + Mouse Keys (Capslock key)
 
