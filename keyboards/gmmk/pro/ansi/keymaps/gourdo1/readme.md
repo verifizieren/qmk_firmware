@@ -22,6 +22,7 @@ This Windows-centric ANSI layout is based on [Jonavin's](https://github.com/qmk/
 * PrtScrn, Scroll Lock, Pause/Break are top right on the keyboard: Fn+F11, Fn+F12, Fn+F13
 * [Colemak](https://colemak.com/) key layout support (Layer accessible via Left Shift + turn Encoder clockwise until side LEDs light up purple)
 * Double tap ESC any time to revert to base layer (added Feb 26, 2022)
+* paddle game (added May xx, 2022)
 
 ### Numpad + Mouse Keys (Capslock key)
 
@@ -43,6 +44,16 @@ This Windows-centric ANSI layout is based on [Jonavin's](https://github.com/qmk/
 * holding Left Ctrl navigates prev/next word
 * holding Right Ctrl changes RGB hue/color
 * holding Left Alt changes media prev/next track
+
+### Paddle Game
+
+* Based on [Tomas Guinan's excellent paddle game] (https://github.com/qmk/qmk_firmware/tree/master/keyboards/gmmk/pro/ansi/keymaps/paddlegame)
+* Paddle Game playable by pressing Fn+P
+* Use rotary encoder to control paddle
+* Contains 12 levels, indicated by blue LED on F row
+* Player has 4 lives, indicated by nav cluster
+* Deflect white balls while avoiding red ones
+* Double hit ESC or otherwise change layer to quit game
 
 ### Global RGB Controls
 
