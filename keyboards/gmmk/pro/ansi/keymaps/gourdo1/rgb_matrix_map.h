@@ -19,9 +19,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 //Define variables for Game
 bool fn_active = false;
-//bool caps_active = false;
-//bool caps_flash_on = false;
-//static uint16_t caps_flasher = 0;
 RGB rgb_value;
 
 // Custom GMMK Pro-specific RGB color customizations (defaults found in quantum/color.h)
