@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
+#ifdef GAME_ENABLE
 const uint16_t GAME_TIMER[] = { 
 	400, 350, 300, 250, 400, 350, 300, 250, 225, 200, 175, 150
 };
@@ -44,3 +44,5 @@ struct BallStruct ball[2];
 
 void init_ball(uint8_t i);
 void hurt_paddle(void);
+
+#endif //GAME_ENABLE

@@ -26,7 +26,9 @@ enum custom_user_layers {
     _FN1,
     _NUMPADMOUSE,
     _MOUSEKEY,
-    _GAME
+    #ifdef GAME_ENABLE
+	_GAME
+	#endif //GAME_ENABLE
 };
 
 #define KC_CAD LALT(LCTL(KC_DEL))

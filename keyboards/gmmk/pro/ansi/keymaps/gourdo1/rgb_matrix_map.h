@@ -292,6 +292,7 @@ const uint8_t LED_SIDE_RIGHT[] = {
     LED_R8
 };
 
+#ifdef GAME_ENABLE
 // Game LED rules
 const uint8_t GAME_LIVES[] = {
     LED_DEL,
@@ -407,5 +408,6 @@ const uint8_t LED_GAME_OVER[] = {
     LED_C,
     LED_M
 };
+#endif //GAME_ENABLE
 
 #endif

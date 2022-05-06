@@ -73,14 +73,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `------------------------------------------------------------------------------------------------------------'
      */
 
+    #ifdef GAME_ENABLE
     [_FN1] = LAYOUT(
-        EE_CLR, KC_MYCM, KC_WHOM, KC_CALC, KC_MSEL, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, KC_VOLD, KC_VOLU, KC_PSCR, KC_SLCK, KC_PAUS,          _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RGB_TOD, RGB_TOI, _______,          RGB_TOG,
-        _______, RGB_SAD, RGB_VAI, RGB_SAI, NK_TOGG, _______,   YAHOO, _______, _______, OUTLOOK, TO(_GAME), SWAP_L, SWAP_R,   RESET,          KC_HOME,
-        KC_CAPS, RGB_HUD, RGB_VAD, RGB_HUI, _______,   GMAIL, HOTMAIL, _______, _______, _______, _______, _______,          _______,          KC_END,
-        _______,          RGB_NITE,_______, _______, _______, _______, KC_NLCK, _______, _______,  DOTCOM,  KC_CAD,          _______, RGB_MOD, _______,
+        EE_CLR,  KC_MYCM, KC_WHOM, KC_CALC, KC_MSEL, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, KC_VOLD, KC_VOLU, KC_PSCR, KC_SLCK, KC_PAUS,           _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RGB_TOD, RGB_TOI, _______,           RGB_TOG,
+        _______, RGB_SAD, RGB_VAI, RGB_SAI, NK_TOGG, _______,   YAHOO, _______, _______, OUTLOOK, TO(_GAME), SWAP_L, SWAP_R,   RESET,           KC_HOME,
+        KC_CAPS, RGB_HUD, RGB_VAD, RGB_HUI, _______,   GMAIL, HOTMAIL, _______, _______, _______, _______, _______,          _______,           KC_END,
+        _______,          RGB_NITE,_______, _______, _______, _______, KC_NLCK, _______, _______,  DOTCOM,  KC_CAD,          _______, RGB_MOD,  _______,
         _______, KC_WINLCK, _______,                          _______,                            _______, _______, _______, RGB_SPD, RGB_RMOD, RGB_SPI
     ),
+
+    [_GAME] = LAYOUT(
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,          _______,
+        _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______,
+        _______, _______, _______,                            _______,                            _______, _______, _______, _______, _______, _______
+    ),
+
+    #else
+    [_FN1] = LAYOUT(
+        EE_CLR,  KC_MYCM, KC_WHOM, KC_CALC, KC_MSEL, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, KC_VOLD, KC_VOLU, KC_PSCR, KC_SLCK, KC_PAUS,           _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RGB_TOD, RGB_TOI, _______,           RGB_TOG,
+        _______, RGB_SAD, RGB_VAI, RGB_SAI, NK_TOGG, _______,   YAHOO, _______, _______, OUTLOOK, KC_PAUS, SWAP_L,  SWAP_R,  RESET,             KC_HOME,
+        KC_CAPS, RGB_HUD, RGB_VAD, RGB_HUI, _______,   GMAIL, HOTMAIL, _______, _______, _______, _______, _______,          _______,           KC_END,
+        _______,          RGB_NITE,_______, _______, _______, _______, KC_NLCK, _______, _______,  DOTCOM,  KC_CAD,          _______, RGB_MOD,  _______,
+        _______, KC_WINLCK, _______,                          _______,                            _______, _______, _______, RGB_SPD, RGB_RMOD, RGB_SPI
+    ),
+    #endif  //GAME_ENABLE
 
     /* _NUMPADMOUSE Layout
      *  Note: A symbol preceded by "P" is a Numpad-encoded version of the key -- any app that differentiates will recognize the char as coming from a physical numpad.
@@ -106,15 +127,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_NO,   KC_NO,   KC_NO,   KC_P1,   KC_P2,   KC_P3,   KC_PAST, _______,          KC_PENT,          KC_WH_D,
         _______,          KC_NO,   _______, _______, _______, KC_NO,   KC_NO,   KC_P0,   KC_00,   KC_PDOT, KC_PSLS,          KC_BTN1, KC_MS_U, KC_BTN2,
         _______, _______, _______,                            _______,                            _______, _______, KC_BTN3, KC_MS_L, KC_MS_D, KC_MS_R
-    ),
-
-    [_GAME] = LAYOUT(
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,          _______,
-        _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______,
-        _______, _______, _______,                            _______,                            _______, _______, _______, _______, _______, _______
     ),
 
     [_MOUSEKEY] = LAYOUT(
@@ -167,6 +179,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             timeout_update_threshold(clockwise);
             #endif
             break;
+            #ifdef GAME_ENABLE
         case _GAME:
             // Game: Paddle movement
             if (damage_count == 0) {
@@ -177,6 +190,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
                 }
             }
             break;
+            #endif //GAME_ENABLE
         default:
             encoder_action_volume(clockwise); // Otherwise it just changes volume
             break;
@@ -190,6 +204,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 #ifdef RGB_MATRIX_ENABLE
 
 // Game logic
+#ifdef GAME_ENABLE
 void init_ball(uint8_t i) {
     i &= 1;
     ball[i].on = true;
@@ -224,6 +239,7 @@ void hurt_paddle(void) {
     init_ball(0);
     ball[1].on = false;
 }
+#endif //GAME_ENABLE
 
 // Capslock, Scroll lock and Numlock indicator on Left side lights.
 void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
@@ -299,9 +315,9 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         rgb_matrix_set_color(LED_LALT, RGB_RED);
         rgb_matrix_set_color(LED_SPC, RGB_RED);
         rgb_matrix_set_color(LED_LWIN, RGB_RED);
-        rgb_matrix_set_color(LED_RALT, RGB_RED);
+        //rgb_matrix_set_color(LED_RALT, RGB_RED);
         rgb_matrix_set_color(LED_FN, RGB_OFFBLUE);
-        rgb_matrix_set_color(LED_RCTL, RGB_RED);
+        //rgb_matrix_set_color(LED_RCTL, RGB_RED);
         rgb_matrix_set_color(LED_BSLS, RGB_RED);
         rgb_matrix_set_color(LED_L1, RGB_RED);
         rgb_matrix_set_color(LED_L2, RGB_RED);
@@ -324,6 +340,11 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         rgb_matrix_set_color(LED_R8, RGB_RED);
         rgb_matrix_set_color(LED_MINS, RGB_OFFBLUE);
         rgb_matrix_set_color(LED_EQL, RGB_OFFBLUE);
+        #ifdef GAME_ENABLE
+        rgb_matrix_set_color(LED_P, RGB_CHARTREUSE);
+        #else
+        rgb_matrix_set_color(LED_P, RGB_RED);
+        #endif // GAME_ENABLE
 
         // Add RGB Timeout Indicator -- shows 0 to 139 using F row and num row; larger numbers using 16bit code
         uint16_t timeout_threshold = get_timeout_threshold();
@@ -381,6 +402,7 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         #endif
 
         // Paddle game logic
+        #ifdef GAME_ENABLE
     case _GAME:
         if (!game_start) {
             srand((unsigned int) timer_read());
@@ -581,13 +603,15 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             }
         }
         break;
-
+        #endif //GAME_ENABLE
     default:
+        #ifdef GAME_ENABLE
         if (game_start) {
             // Reset lighting settings
             game_start = false;
             rgb_matrix_sethsv_noeeprom(last_hsv.h, last_hsv.s, last_hsv.v);
         }
+        #endif //GAME_ENABLE
         break;
     }
 }

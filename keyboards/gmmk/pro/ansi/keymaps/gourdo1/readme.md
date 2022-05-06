@@ -48,7 +48,7 @@ This Windows-centric ANSI layout is based on [Jonavin's](https://github.com/qmk/
 ### Paddle Game
 
 * Based on [Tomas Guinan's excellent GMMK Pro paddle game](https://github.com/qmk/qmk_firmware/tree/master/keyboards/gmmk/pro/ansi/keymaps/paddlegame)
-* Paddle Game playable by pressing Fn+P
+* Paddle Game playable by pressing Fn+P (P lights up green in Fn layer if game is enabled in firmware, otherwise it lights up red)
 * Use rotary encoder to control paddle
 * Contains 12 levels, indicated by blue LED on F-key row
 * Player has 4 lives, indicated by nav cluster
@@ -81,7 +81,7 @@ Link to cheatsheet: https://github.com/gourdo1/media/raw/main/GMMK_Pro_Cheatshee
 
 ## rules.mk Options
 
-STARTUP_NUMLOCK_ON = yes             - turns on NUMLOCK by default
+STARTUP_NUMLOCK_ON = yes             - Turns on NUMLOCK by default
 
 ENCODER_DEFAULTACTIONS_ENABLE = yes  - Enabled default encoder functions
 
@@ -89,10 +89,11 @@ TD_LSFT_CAPSLOCK_ENABLE = yes        - This will enable double tap on Left Shift
 
 IDLE_TIMEOUT_ENABLE = yes            - Enables Timer functionality; for RGB idle timeouts that can be changed dynamically
 
-INVERT_NUMLOCK_INDICATOR             - inverts the Numlock indicator, LED is on when numlock is off -- numlock interferes with numpad keys, so should generally be off when numpad layer is active.
+INVERT_NUMLOCK_INDICATOR             - Inverts the Numlock indicator, LED is on when numlock is off -- numlock interferes with overlay numpad, so should  be off when numpad layer is active unless you have an external numpad.
 
-COLEMAK_LAYER_ENABLE = yes           - Enable optional 5th layer for COLEMAK layout. Use Shift + encoder to enter 5th layer.
+COLEMAK_LAYER_ENABLE = yes           - Enables optional 5th layer for COLEMAK layout. Use Shift + encoder to enter 5th layer.
 
+GAME_ENABLE ?= yes                   - Enables Paddle Game
 
 ## Layer Diagrams
 ### Base layer
