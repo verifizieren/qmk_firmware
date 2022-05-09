@@ -42,7 +42,6 @@ void dance_LSFT_reset(qk_tap_dance_state_t * state, void * user_data) {
 // Tap Dance definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
     // Tap once for shift, twice for Caps Lock
-    [TD_LSFT_CAPSLOCK] = ACTION_TAP_DANCE_DOUBLE(KC_LSFT, KC_CAPS),
     [TD_LSFT_CAPS_WIN] = ACTION_TAP_DANCE_FN_ADVANCED(dance_LSFT_each_tap, NULL, dance_LSFT_reset),
     // Tap once for Escape, twice to reset to base layer
     [TD_ESC_BASELYR] = ACTION_TAP_DANCE_DUAL_ROLE(KC_ESC, _BASE),
