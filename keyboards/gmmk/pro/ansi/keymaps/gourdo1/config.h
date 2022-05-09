@@ -17,6 +17,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
+#define FORCE_NKRO
+
 #define TAPPING_TOGGLE 2
 // TT set to two taps
 
@@ -40,10 +42,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_SAT_STEP 17 // The number of steps to increment the saturation by (default 17)
 #define RGBLIGHT_VAL_STEP 17 // The number of steps to increment the brightness by (default 17)
 
-// add fifth layer for colemak  -- set "COLEMAK_LAYER_ENABLE = yes" in rules.mk to enable
+// add a layer for colemak  -- set "COLEMAK_LAYER_ENABLE = yes" in rules.mk to enable
 #if defined COLEMAK_LAYER_ENABLE
-#define DYNAMIC_KEYMAP_LAYER_COUNT 5
-#define _COLEMAK 4
+    #ifdef GAME_ENABLE
+        #define DYNAMIC_KEYMAP_LAYER_COUNT 6
+        #define _COLEMAK 5
+    #else
+        #define DYNAMIC_KEYMAP_LAYER_COUNT 5
+        #define _COLEMAK 4
+    #endif //GAME_ENABLE
 #endif // COLEMAK_LAYER_ENABLE
 
 /*

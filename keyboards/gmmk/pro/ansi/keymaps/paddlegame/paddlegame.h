@@ -15,9 +15,19 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
-const uint16_t GAME_TIMER[] = { 
-	400, 350, 300, 250, 400, 350, 300, 250, 225, 200, 175, 150
+const uint16_t GAME_TIMER[] = {
+    400,
+    350,
+    300,
+    250,
+    400,
+    350,
+    300,
+    250,
+    225,
+    200,
+    175,
+    150
 };
 
 bool game_start = false;
@@ -30,16 +40,15 @@ static uint8_t damage_count;
 static uint16_t damage_timer;
 static uint16_t ball_timer;
 
-struct BallStruct
-{
-	uint8_t x;
-	uint8_t y;
-	bool on;
-	bool up;
-	bool left;
-	bool enemy;
+struct BallStruct {
+    uint8_t x;
+    uint8_t y;
+    bool on;
+    bool up;
+    bool left;
+    bool enemy;
 };
-	
+
 struct BallStruct ball[2];
 
 void init_ball(uint8_t i);
