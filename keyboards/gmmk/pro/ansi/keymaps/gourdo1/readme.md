@@ -66,13 +66,15 @@ This Windows-centric ANSI layout is based on [Jonavin's](https://github.com/qmk/
 * RGB backlight timeout: Fn+Encoder or "-" and "=" (default 15 minutes) (updated Apr 7, 2022)
     * indicators in Fn layer using RGB in F-key and number rows to show the current timeout in minutes
 * RGB indicators on left side LEDs: Capslock (green), Scroll Lock (red), and Num Lock not set (orange) 
-* Fn+Z to turn off RGB backlighting; press again to toggle
+* Fn+Z to turn off RGB backlighting (indicator lights still work); press again to toggle
 
 ### Advanced Controls
 
 * Fn+\ to get to bootloader mode
 * Fn+[ESC] to clear EEPROM (then unplug and re-plug) (added Apr 11, 2022)
 * Fn+R to toggle N-key Rollover (added Apr 11, 2022)
+* Fn+/ is shortcut to Ctrl-Alt-Delete (added May 14, 2022)
+* Fn+[Encoder press] to sleep Windows PC (added May 14, 2022)
 
 Link to latest firmware binary: https://github.com/gourdo1/media/raw/main/gmmk_pro_ansi_gourdo1.bin
 
