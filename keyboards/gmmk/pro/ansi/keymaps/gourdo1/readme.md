@@ -44,6 +44,7 @@ This Windows-centric ANSI layout is based on [Jonavin's](https://github.com/qmk/
 * Default knob turn changes volume; button press toggles mute
 * Exponential encoder - quick repeated volume up doubles increase; quick repeated volume down triples decrease (added Feb 17, 2022)
 * Fn + knob turn changes RGB idle timeout
+* Fn + knob push puts PC to Sleep (Added May 14, 2022)
 * holding Left Shift changes layers
 * holding Right Shift navigates page up/down
 * holding Left Ctrl navigates prev/next word
