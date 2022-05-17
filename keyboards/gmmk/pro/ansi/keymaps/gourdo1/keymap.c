@@ -77,9 +77,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_FN1] = LAYOUT(
         EE_CLR,  KC_MYCM, KC_WHOM, KC_CALC, KC_MSEL, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, KC_VOLD, KC_VOLU, KC_PSCR, KC_SLCK, KC_PAUS,           KC_SLEP,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RGB_TOD, RGB_TOI, _______,           RGB_TOG,
-        _______, RGB_SAD, RGB_VAI, RGB_SAI, NK_TOGG, _______,   YAHOO, _______, _______, OUTLOOK, TG(_GAME), SWAP_L, SWAP_R,   RESET,           KC_HOME,
-        KC_CAPS, RGB_HUD, RGB_VAD, RGB_HUI, _______,   GMAIL, HOTMAIL, _______, _______, _______, _______, _______,          _______,           KC_END,
-        _______,          RGB_NITE,_______, _______, _______, _______, KC_NLCK, _______, _______,  DOTCOM,  KC_CAD,          _______, RGB_MOD,  _______,
+        _______, RGB_SAD, RGB_VAI, RGB_SAI, NK_TOGG, _______, YAHOO,   _______, _______, OUTLOOK, TG(_GAME),SWAP_L, SWAP_R,  RESET,             KC_HOME,
+        KC_CAPS, RGB_HUD, RGB_VAD, RGB_HUI, _______, GMAIL,   HOTMAIL, _______, _______, LOCKPC,  _______, _______,          _______,           KC_END,
+        _______,          RGB_NITE,_______, _______, _______, _______, KC_NLCK, _______, _______, DOTCOM,  KC_CAD,           _______, RGB_MOD,  _______,
         _______, KC_WINLCK, _______,                          _______,                            _______, _______, _______, RGB_SPD, RGB_RMOD, RGB_SPI
     ),
 
@@ -96,9 +96,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_FN1] = LAYOUT(
         EE_CLR,  KC_MYCM, KC_WHOM, KC_CALC, KC_MSEL, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, KC_VOLD, KC_VOLU, KC_PSCR, KC_SLCK, KC_PAUS,           KC_SLEP,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RGB_TOD, RGB_TOI, _______,           RGB_TOG,
-        _______, RGB_SAD, RGB_VAI, RGB_SAI, NK_TOGG, _______,   YAHOO, _______, _______, OUTLOOK, KC_PAUS, SWAP_L,  SWAP_R,  RESET,             KC_HOME,
-        KC_CAPS, RGB_HUD, RGB_VAD, RGB_HUI, _______,   GMAIL, HOTMAIL, _______, _______, _______, _______, _______,          _______,           KC_END,
-        _______,          RGB_NITE,_______, _______, _______, _______, KC_NLCK, _______, _______,  DOTCOM,  KC_CAD,          _______, RGB_MOD,  _______,
+        _______, RGB_SAD, RGB_VAI, RGB_SAI, NK_TOGG, _______, YAHOO,   _______, _______, OUTLOOK, KC_PAUS, SWAP_L,  SWAP_R,  RESET,             KC_HOME,
+        KC_CAPS, RGB_HUD, RGB_VAD, RGB_HUI, _______, GMAIL,   HOTMAIL, _______, _______, LOCKPC,  _______, _______,          _______,           KC_END,
+        _______,          RGB_NITE,_______, _______, _______, _______, KC_NLCK, _______, _______, DOTCOM,  KC_CAD,           _______, RGB_MOD,  _______,
         _______, KC_WINLCK, _______,                          _______,                            _______, _______, _______, RGB_SPD, RGB_RMOD, RGB_SPI
     ),
     #endif  //GAME_ENABLE
@@ -126,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_PGUP, KC_UP,   KC_PGDN, KC_NO,   KC_NO,   KC_NO,   KC_P4,   KC_P5,   KC_P6,   KC_PPLS, _______, _______, _______,          KC_WH_U,
         _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_NO,   KC_NO,   KC_NO,   KC_P1,   KC_P2,   KC_P3,   KC_PAST, _______,          KC_PENT,          KC_WH_D,
         _______,          KC_NO,   _______, _______, _______, KC_NO,   KC_NO,   KC_P0,   KC_00,   KC_PDOT, KC_PSLS,          KC_BTN1, KC_MS_U, KC_BTN2,
-        _______, _______, _______,                            _______,                            _______, _______, KC_BTN3, KC_MS_L, KC_MS_D, KC_MS_R
+        _______, _______, _______,                            KC_PENT,                            _______, _______, KC_BTN3, KC_MS_L, KC_MS_D, KC_MS_R
     ),
 
     [_MOUSEKEY] = LAYOUT(

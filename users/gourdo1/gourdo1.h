@@ -32,6 +32,7 @@ enum custom_user_layers {
 };
 
 #define KC_CAD LALT(LCTL(KC_DEL))
+#define LOCKPC LGUI(KC_L)
 #define KC_AF4 LALT(KC_F4)
 #define KC_TASK LCTL(LSFT(KC_ESC))
 #define CT_PGUP RCTL(KC_PGUP)
