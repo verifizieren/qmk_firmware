@@ -22,6 +22,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TOGGLE 2
 // TT set to two taps
 
+#ifdef COMMAND_ENABLE
+#define IS_COMMAND() (get_mods() == MOD_MASK_CTRL) //debug commands accessed by holding down both CTRLs: https://github.com/qmk/qmk_firmware/blob/master/docs/feature_command.md
+#endif
+
 /* Handle GRAVESC combo keys */
 #define GRAVE_ESC_ALT_OVERRIDE
 // Always send Escape if Alt is pressed

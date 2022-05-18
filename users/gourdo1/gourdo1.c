@@ -39,14 +39,17 @@ void dance_LSFT_reset(qk_tap_dance_state_t * state, void * user_data) {
         unregister_code16(KC_LSFT);
     }
 }
+#endif // TD_LSFT_CAPSLOCK_ENABLE
+
 // Tap Dance definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
+    #ifdef TD_LSFT_CAPSLOCK_ENABLE
     // Tap once for shift, twice for Caps Lock
     [TD_LSFT_CAPS_WIN] = ACTION_TAP_DANCE_FN_ADVANCED(dance_LSFT_each_tap, NULL, dance_LSFT_reset),
+    #endif // TD_LSFT_CAPSLOCK_ENABLE
     // Tap once for Escape, twice to reset to base layer
-    [TD_ESC_BASELYR] = ACTION_TAP_DANCE_DUAL_ROLE(KC_ESC, _BASE),
+    [TD_ESC_BASELYR] = ACTION_TAP_DANCE_LAYER_MOVE(KC_5, _BASE)
 };
-#endif // TD_LSFT_CAPSLOCK_ENABLE
 
 // RGB NIGHT MODE
 #ifdef RGB_MATRIX_ENABLE
