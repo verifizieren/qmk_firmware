@@ -48,7 +48,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_LSFT_CAPS_WIN] = ACTION_TAP_DANCE_FN_ADVANCED(dance_LSFT_each_tap, NULL, dance_LSFT_reset),
     #endif // TD_LSFT_CAPSLOCK_ENABLE
     // Tap once for Escape, twice to reset to base layer
-    [TD_ESC_BASELYR] = ACTION_TAP_DANCE_LAYER_MOVE(KC_5, _BASE)
+    [TD_ESC_BASELYR] = ACTION_TAP_DANCE_LAYER_MOVE(KC_ESC, _BASE)
 };
 
 // RGB NIGHT MODE
