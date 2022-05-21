@@ -250,6 +250,7 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         rgb_matrix_set_color(LED_L3, RGB_RED);
         rgb_matrix_set_color(LED_L4, RGB_RED);
         rgb_matrix_set_color(LED_TAB, RGB_RED);
+        rgb_matrix_set_color(LED_F12, RGB_RED);
     }
 
     // System NumLock warning indicator RGB setup
