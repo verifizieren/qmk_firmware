@@ -71,8 +71,8 @@ This Windows-centric ANSI layout is based on [Jonavin's](https://github.com/qmk/
 * RGB backlight night mode toggle: Fn+Z (indicators still work)
 * RGB backlight timeout: Fn+Encoder or "-" and "=" (default 15 minutes) (updated Apr 7, 2022)
     * indicators in Fn layer using RGB in F-key and number rows to show the current timeout in minutes
-* RGB indicators on left side LEDs: Capslock (green), Scroll Lock (red), and Num Lock not set (orange) 
 * Fn+Z to turn off RGB backlighting (indicator lights still work); press again to toggle
+* RGB indicators on left side LEDs in order from top: System NumLock off (orange), Scroll Lock (red), Numpad (blue), Capslock (green).
 
 ### Advanced Controls
 
