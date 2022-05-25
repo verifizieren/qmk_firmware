@@ -27,6 +27,8 @@ This Windows-centric ANSI layout is based on [Jonavin's](https://github.com/qmk/
 * PrtScrn, Scroll Lock, Pause/Break are top right on the keyboard: Fn+F11, Fn+F12, Fn+F13
 * [Colemak](https://colemak.com/) key layout support (Layer accessible via Left Shift + turn Encoder clockwise until side LEDs light up purple)
 * Double tap ESC any time to revert to base layer (added Feb 26, 2022)
+* RGB backlight effects expanded to include framebuffer effects and reactive keypress modes (updated May 24, 2022)
+* RGB backlight now remembers last color & effect settings after power down (updated May 24, 2022)
 
 ### Numpad + Mouse Keys (Capslock key)
 

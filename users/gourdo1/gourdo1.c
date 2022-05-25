@@ -374,6 +374,6 @@ void keyboard_post_init_user(void) {
     activate_numlock(true); // turn on Num lock by default so that the numpad layer always has predictable results
     #endif // STARTUP_NUMLOC_ON
     #ifdef IDLE_TIMEOUT_ENABLE
-    timeout_timer = timer_read(); // set inital time for ide timeout
+    timeout_timer = timer_read(); // set initial time for idle timeout
     #endif
 }
