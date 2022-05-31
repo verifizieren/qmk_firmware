@@ -11,6 +11,7 @@ This Windows-centric ANSI layout is based on [Jonavin's](https://github.com/qmk/
 * [VIA](https://www.caniusevia.com/) support enabled (added Mar 16, 2022)
 * Most [default Glorious shortcuts](https://cdn.shopify.com/s/files/1/0549/2681/files/GMMK_Pro_User_Guide.pdf) enabled
 * [N-key Rollover](https://en.wikipedia.org/wiki/Rollover_\(keyboard\)#n-key_rollover) (NKRO) -- toggled with Fn+R
+* 1000Hz polling rate with 5ms debounce time for quick response in games
 * Mouse Keys! Don't want to move your hands off the keyboard or you didn't bring it with you on the road? Use cursor keys to move the mouse.
 * Overlay numpad on 789-UIOP-JKL;-M,. & Space-bar mapped to Enter key for rapid number entry
 * Gaming mode (Fn+Win-key) locks out Win-key as well as double-tap Shift Capslock; Also RGB highlights WSAD and nearby gaming related keys
